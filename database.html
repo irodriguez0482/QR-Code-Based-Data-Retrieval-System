@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menubar</title>
+    <style>
+        body{
+            background: linear-gradient(to bottom, white, #d5dde0);
+            font-family: calibri;
+        }
+        .menubar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .menubar .addNew-btn,
+        .menubar .userView-btn {
+            display: inline-block;
+            background-color: #81968f;
+            color: white;
+            height: 60px;
+            width: 120px;
+            margin: 10px;
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+        }
+
+        .menubar .icon {
+            position: absolute; 
+            top: 2.5%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+        }
+
+        .menubar .logout-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .menubar .welcome-message {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .logout-btn {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+    <div class="menubar">
+        <div class="db-buttons">
+            <a href="#" class="addNew-btn">Add New</a>
+            <a href="#" class="userView-btn">User View</a>
+        </div>
+        <img src="icon.png" alt="AppLogo" class="icon">
+        <div class="logout-section">
+            <div class="welcome-message">Welcome {username}!</div>
+            <a href="#" class="logout-btn">Logout</a>
+        </div>
+    </div>
+<body>
+    <div class="database-container">
+        <h2>Database</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Wakame Sushi</td>
+                <td>4/5</td>
+            </tr>
+    </div>   
+</body>
+</html>
