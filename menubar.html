@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Navigation Bar</title>
+	<style type="text/css">
+		*{
+			text-decoration: none;
+		}
+        .menubar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d0d5d7;
+            padding: 25px;
+            font-family: calibri;
+        }
+
+        .menubar .home-btn {
+            margin-right: auto;
+            background-color: #81968f;
+            color: white;
+            padding-left: 40px;
+            background-image: url("home.png");
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-size: 40px;
+            height: 60px;
+            width: 120px;
+            font-size: 1.5em;
+        }
+        /* Icon references */
+        /* Home icon by HideMaru: https://www.freepik.com/icons/white*/
+
+        .menubar .icon {
+            margin: 0 20px;
+            align-self: center;
+        }
+
+        .menubar .login-btn {
+            margin-left: auto;
+            background-color: #81968f;
+            color: white;
+            height: 60px;
+            width: 120px;
+            font-size: 1.5em;
+        }
+
+        .menubar a.home-btn,
+        .menubar a.login-btn {
+            display: inline-block;
+            background-color: #81968f;
+            color: white;
+            height: 60px;
+            width: 120px;
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+        }
+	</style>
+</head>
+<body>
+	<nav class="menubar" id="menubar">
+		<a class="home-btn" href="index.html" target="_parent">Home</a>
+        <img src="icon.png" alt="AppLogo" class="icon">
+		<a class="login-btn" href="login.html" target="_parent">Login</a>
+	</nav>
+</body>
+</html>
