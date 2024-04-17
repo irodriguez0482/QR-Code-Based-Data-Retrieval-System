@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Navigation Bar</title>
+	<style type="text/css">
+		*{
+			text-decoration: none;
+		}
+        @font-face {
+        font-family: 'SF Pro';
+        src: url('fonts/SFPro.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+        }
+        .menubar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #d0d5d7;
+            padding: 25px;
+            font-family: calibri;
+        }
+
+        .menubar .home-btn {
+            margin-right: auto;
+            background-color: #81968f;
+            color: white;
+            padding-left: 40px;
+            background-image: url("Images/home.png");
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-size: 40px;
+            height: 60px;
+            width: 120px;
+            font-size: 1.5em;
+        }
+        /* Icon references */
+        /* Home icon by HideMaru: https://www.freepik.com/icons/white*/
+
+        .menubar .icon {
+            margin: 0 20px;
+            align-self: center;
+            vertical-align: center;
+            width:auto;
+            height: 84px;
+        }
+
+        .menubar .login-btn {
+            font-family: 'SF Pro', sans-serif;
+            margin-left: auto;
+            background-color: #81968f;
+            color: white;
+            height: 60px;
+            width: 120px;
+            font-size: 1.5em;
+        }
+
+        .menubar a.login-btn,
+        .menubar a.home-btn {
+            font-family: 'SF Pro', sans-serif;
+            display: inline-block;
+            background-color: #81968f;
+            color: white;
+            height: 60px;
+            width: 120px;
+            font-size: 1.5em;
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+        }
+        .menubar a.login-btn{
+            background-color: #D55A64;
+        }
+	</style>
+</head>
+<body>
+	<nav class="menubar" id="menubar">
+		<a class="home-btn" href="/" target="_parent" >Home</a>
+        <img src="Images/logo.png" alt="AppLogo" class="icon">
+		<a class="login-btn" href="/users/login" target="_parent">Login</a>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <object data="menubar.html" style="width: 100%;"></object>
+    <style>
+        @font-face {
+            font-family: 'SF Pro';
+            src: url('fonts/SFPro.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        } 
+        body{
+            background: linear-gradient(to bottom, white, #d5dde0);
+            font-family: 'SF Pro', sans-serif;
+        }
+        .login-container {
+            font-family: 'SF Pro', sans-serif;
+            width: 500px;
+            height: 600px;
+            background-color: #96BDC6;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .login-container h2 {
+            font-family: 'SF Pro', sans-serif;
+            text-align: center;
+            font-family: 'Calibri', sans-serif;
+            margin-top: 50px;
+        }
+        
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            font-family: 'SF Pro', sans-serif;
+            width: 80%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        
+        .login-container /*form*/ button{
+            font-family: 'SF Pro', sans-serif;
+            background-color: #F05365;
+            color: white;
+            width: 80%;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: auto;
+        }
+
+        .login-container a{
+            text-decoration: none;
+            color: white;
+            font-size: medium;
+        }
+        
+        .login-container button:hover {
+            opacity: 0.8;
+        }
+        
+        .login-container .links {
+            text-align: center;
+        }
+        
+        .login-container .links a {
+            display: block;
+            color: #2E294E;
+            text-decoration: none;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/users/login" method="POST">
+        <div id="login"></div>
+        <div class="login-container">
+            <h2>Admin Login</h2>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit"><a href="database.html">Login</a></button>
+            <div class="links">
+                <a href="#">Forgot Username/Password?</a>
+                <a href="/users/register">Request Admin Access</a>
+            </div>
+        </div>
+        </div>
+    </form>    
+</body>
+</html>

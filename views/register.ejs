@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @font-face {
+            font-family: 'SF Pro';
+            src: url('fonts/SFPro.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        } 
+        body{
+            background: linear-gradient(to bottom, white, #d5dde0);
+            font-family: 'SF Pro', sans-serif;
+        }
+        .register-container {
+            font-family: 'SF Pro', sans-serif;
+            width: 500px;
+            height: 600px;
+            background-color: #96BDC6;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .register-container input[type="text"],
+        .register-container input[type="password"],
+        .register-container input[type="email"]{
+            font-family: 'SF Pro', sans-serif;
+            width: 80%;
+            padding: 20px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        
+        .register-container input[type="submit"]{
+            font-family: 'SF Pro', sans-serif;
+            background-color: #F05365;
+            color: white;
+            width: 80%;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: auto;
+        }
+
+        .register-container a{
+            text-decoration: none;
+            color: white;
+            text-align: center;
+        }
+        
+        .register-container .links a {
+            display: block;
+            color: #2E294E;
+            text-decoration: none;
+            margin: 10px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <% if(typeof errors != 'undefined') { %>
+            <% errors.forEach(function(error) { %>
+                <li><%= error.message %></li>
+            <% }); %>
+        <% } %>
+    </ul>
+
+    <form action="/users/register" method="POST">
+        <div class="register-container"> 
+            <input 
+                type="text" 
+                name="name" 
+                id="name" 
+                placeholder="Name" 
+                required
+            />
+            <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                placeholder="Email" 
+                required
+            />
+            <input 
+                type="password" 
+                name="password" 
+                id="password" 
+                placeholder="Password" 
+                required
+            />
+            <input 
+                type="password" 
+                name="password2" 
+                id="password2" 
+                placeholder="Confirm Password" 
+                required
+            />
+            <input type="submit" value="Register" />
+            <div class="links">
+                <a href="/users/login">Already registered? Login here</a>
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>
