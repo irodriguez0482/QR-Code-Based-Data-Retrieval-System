@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Poly's BiteQuest</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/static/styles.css"/>
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
-    <object data="menubar.html" style="width: 100%;"></object>
     <style>
       @font-face {
             font-family: 'SF Pro';
@@ -22,9 +21,16 @@
         }
     </style>
   <body>
-    <main>
-        <h1>Welcome to My Website</h1>  
-    </main>
-	<script src="index.js"></script>
+    <nav class="menubar" id="menubar">
+      <div class="left">
+        <!-- Empty for this page -->
+      </div>
+      <div class="center">
+        <img src="static/images/logo.png" alt="AppLogo" class="icon">
+      </div>
+      <div class="right">
+        <a class="login-btn" href="/login" target="_parent">Login</a>
+      </div>
+    </nav>
   </body>
 </html>
