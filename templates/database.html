@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database</title>
+    <link rel="stylesheet" href="/static/styles.css"/>
+<body>
+    <nav class="menubar" id="menubar">
+        <div class="left">
+            <div class="db-buttons">
+                <a href="#" class="addNew-btn">Add New</a>
+                <a href="#" class="userView-btn">User View</a>
+            </div>
+        </div>
+        <div class="center">
+            <img src="static/images/logo.png" alt="AppLogo" class="icon">
+        </div>
+        <div class="right">
+            <div class="logout-section">
+                <div class="welcome-message">Welcome {{username}}!</div>
+                <a href="/" class="logout-btn">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+    <table class="table">
+        <tr class="table-header">
+            {% for header in headings %}
+                <th class="table-cell">{{ header }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data %}
+            <tr class="table-row">
+                {% for cell in row %}
+                    <td class="table-cell">{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
