@@ -19,6 +19,10 @@
         width: auto;
         color: #333;
     }
+    .inner-form-container{
+        margin-top:40px;
+        margin-left: 50px;
+    }
 </style>
 <body>
     <nav class="menubar" id="menubar">
@@ -39,7 +43,7 @@
     </nav>
 
     <div class="form-container">
-        <form action="/add-new-restaurant" method="POST">
+        <form class="inner-form-container" action="/add-new-restaurant" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
 
