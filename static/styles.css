@@ -64,7 +64,7 @@ body{
     background-color: #81968f;
     color: white;
     padding-left: 40px;
-    background-image: url("Images/home.png");
+    background-image: url("images/home.png");
     background-repeat: no-repeat;
     background-position: 10px center;
     background-size: 40px;
@@ -148,4 +148,67 @@ body{
 }
 
 
+/*  --------------------------Form Styles --------------------------  */
+.form-container {
+    width: 500px;
+    height: 600px;
+    background-color: #96BDC6;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.form-container h2 { 
+    text-align: center;
+    font-family: 'Calibri', sans-serif;
+    margin-top: 50px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 80%;
+    padding: 20px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.form-container button{
+    background-color: #F05365;
+    color: white;
+    width: 80%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: auto;
+}
+
+.form-container a{
+    text-decoration: none;
+    color: white;
+}
+
+.form-container button:hover {
+    opacity: 0.8;
+}
+
+.form-container .links {
+    text-align: center;
+}
+
+.form-container .links a {
+    display: block;
+    color: #2E294E;
+    text-decoration: none;
+    margin: 10px auto;
+    text-align: center;
+}
