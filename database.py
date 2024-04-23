@@ -1,5 +1,10 @@
 import shutil
 from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import InputRequired, Length, Email, ValidationError
 import sqlite3 as sql
 import qrcode
 
@@ -10,6 +15,31 @@ print("Opened database successfully")
 cur = conn.cursor()
 
 app = Flask(__name__)
+
+user_db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SECRET_KEY'] = 'thisisasecretkey'
+
+class User(user_db.Model, UserMixin):
+    id = user_db.Column(user_db.Integer, primary_key=True)
+    username = user_db.Column(user_db.String(150), nullable=False, unique=True)
+    password = user_db.Column(user_db.String(150), nullable=False)
+
+class RegisterForm(FlaskForm):
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=150)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=150)])
+    submit = SubmitField('submit')
+
+    def validate_username(self, username):
+        existing_user = User.query.filter_by(username=username.data).first()
+        if existing_user:
+            raise ValidationError('That username is taken. Please choose a different one.')
+
+class LoginForm(FlaskForm):
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=150)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=150)])
+    submit = SubmitField('Login')
+
 
 @app.route('/')
 def index():
@@ -92,9 +122,15 @@ def abuelosMexican():
 
 
 
-@app.route('/login')
+@app.route('/login', methods=["GET", "POST"])
 def login():
-    return render_template('login.html')
+    form = LoginForm()
+    return render_template('login.html', form=form)
+
+@app.route('/register', methods=["GET", "POST"])
+def login():
+    form = RegisterForm()
+    return render_template('register.html', form=form)
 
 @app.route('/database')
 def database():
