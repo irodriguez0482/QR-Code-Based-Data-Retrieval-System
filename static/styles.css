@@ -147,6 +147,13 @@ body{
     padding: 8px;
 }
 
+.table-cell a{
+    background-color: #D55A64;
+    padding: 5px;
+    text-decoration: none;
+    color:#333;
+}
+
 
 /*  --------------------------Form Styles --------------------------  */
 .form-container {

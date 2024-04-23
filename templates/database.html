@@ -33,8 +33,15 @@
                 {% for cell in row %}
                     <td class="table-cell">{{ cell }}</td>
                 {% endfor %}
-            </tr>
+                <td class="table-cell">
+                    <a href="/edit-restaurant" class="edit-btn" >Edit</a>
+                    <form action = "/delete-restaurant" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete" class="btn-btn-danger">
+                    </form>
+                </tr>
         {% endfor %}
     </table>
 </body>
 </html>
+

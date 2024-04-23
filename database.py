@@ -149,17 +149,17 @@ def add_new_restaurant():
     else:
         return render_template('/add-new-restaurant.html')
     
-
-@app.route('/edi-restaurant/<string:id>', methods=["GET", "POST"])
-def edit_restaurant(id):
-    #Create cursor
+@app.route('/edit-restaurant', methods=["GET", "POST"])
+def edit_restaurant():
     cur = conn.cursor()
+    result = cur.execute("SELECT * FROM LakelandEatsList WHERE id = 1")
+    restaurant = cur.fetchone()
 
-    #Get restaurant by id
-    result = cur.execute("SELECT * FROM LakelandEatsList WHERE id = ?", [id])
-    restaurant = result.fetchone()
-
-    # https://www.youtube.com/watch?v=Us9DuF4KWUE
+    name = restaurant['Name']
+    location = restaurant['Location']
+    distance = restaurant['Distance']
+    price = restaurant['Price']
+    review = restaurant['Review']
 
     if request.method == "POST":
         try:
@@ -171,16 +171,42 @@ def edit_restaurant(id):
 
             with sql.connect("SSEData.db") as con:
                 cur = con.cursor()
-                cur.execute("UPDATE LakelandEatsList SET Location=?, Distance=?, Price=?, Review=? WHERE Name=?", (location, distance, price, review, name))
+                cur.execute("UPDATE LakelandEatsList (Name, Location, Distance, Price, Review) VALUES (?, ?, ?, ?, ?) WHERE id = 1", (name, location, distance, price, review))
                 con.commit()
                 msg = "Record successfully updated"
+            
+            qr=qrcode.QRCode(
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=10,
+                border=4,
+            )
+    
             return redirect(url_for('database'))
         except:
             con.rollback()
-            msg = "error in update operation"
+            msg = "error in insert operation"
 
     else:
         return render_template('/edit-restaurant.html')
+    
+@app.route('/delete-restaurant', methods=["POST"])
+def delete_restaurant():
+    if request.method == "POST":
+        try:
+            with sql.connect("SSEData.db") as con:
+                cur = con.cursor()
+                cur.execute("DELETE FROM LakelandEatsList WHERE id = 84")
+                con.commit()
+                msg = "Record successfully deleted"
+            
+            return redirect(url_for('database'))
+        except:
+            con.rollback()
+            msg = "error in insert operation"
 
+    else:
+        return render_template('/delete-restaurant')
+    
 if __name__ == '__main__':
     app.run(debug=True)
