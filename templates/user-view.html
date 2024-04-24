@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Poly's BiteQuest</title>
+    <link rel="stylesheet" href="/static/styles.css"/>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+    <style>
+      @font-face {
+            font-family: 'SF Pro';
+            src: url('fonts/SFPro.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        } 
+        body{
+            background: linear-gradient(to bottom, white, #d5dde0);
+            font-family: 'SF Pro', sans-serif;
+        }
+        .map {
+          width: 80%;
+        }
+        .map iframe{
+          position:  cneter;
+          display: block;
+          width:800px;
+          height:600px;
+        }
+        .container-map iframe{
+          width: 100%;
+          position: center;
+          margin-top:10px;
+        }
+        .container-map{
+          display: flex;
+          justify-content: center;
+        }
+        .QRcode{
+          display:inline-block;
+          vertical-align: top;
+        }
+        .main{
+          padding:20px;
+        }
+
+    </style>
+  <body>
+    <nav class="menubar" id="menubar">
+      <div class="left">
+        <a href="/database" class="userView-btn">Database</a>
+      </div>
+      <div class="center">
+        <img src="static/images/logo.png" alt="AppLogo" class="icon">
+      </div>
+      <div class="right">
+        <div class="logout-section">
+            <div class="welcome-message">Welcome {{username}}!</div>
+            <a href="/" class="logout-btn">Logout</a>
+        </div>
+      </div>
+    </nav>
+    <div class="main">
+    <h1>Welcome to Poly's BiteQuest!</h1>
+    <h2>Check out locations below!</h2>
+  <div class="container-map">
+  <div class="map">
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aWRI5XadA-rGZqy7aQkoCN39YXwzgoQ&ehbc=2E312F&noprof=1"></iframe>
+  </div>
+</div>
+<h3>QR Codes</h3>
+  <div class="container">
+    <div class="QRcode">
+      <h4>1.</h4>
+    </div>
+    <i><img src="/static/images/qrcodes/qr4riversSmokehouse.png" width="200" height="200"></i>
+    <div class="QRcode">
+      <h4>2.</h4>
+    </div>
+    <i><img src="/static/images/qrcodes/Wakame-sushi.png" width="200" height="200"></i>
+    <div class="QRcode">
+      <h4>3.</h4>
+    </div>
+    <i><img src="/static/images/qrcodes/abuelos-mexican.png" width="200" height="200"></i>
+  </div>
+</div>
+</body>
+</html>

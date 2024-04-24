@@ -8,7 +8,7 @@
         <div class="left">
             <div class="db-buttons">
                 <a href="/add-new-restaurant" class="addNew-btn">Add New</a>
-                <a href="#" class="userView-btn">User View</a>
+                <a href="/user-view" class="userView-btn">User View</a>
             </div>
         </div>
         <div class="center">
@@ -29,10 +29,19 @@
             {% endfor %}
         </tr>
         {% for row in data %}
-            <tr class="table-row">
-                {% for cell in row %}
-                    <td class="table-cell">{{ cell }}</td>
-                {% endfor %}
+        <tr class="table-row">
+            {% for cell in row %}
+                <td class="table-cell">{{ cell }}</td>
+            {% endfor %}
+            <td class="table-cell">
+                <form action="/edit-restaurant" method="POST">
+                    <input type="hidden" name="_method" method="POST">
+                    <input type="submit" value="Edit" class="btn-btn-edit">
+                </form>
+                <form action = "/delete-restaurant" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Delete" class="btn-btn-danger">
+                </form>
             </tr>
         {% endfor %}
     </table>
