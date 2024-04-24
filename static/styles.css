@@ -190,6 +190,7 @@ body{
     cursor: pointer;
     border-radius: 5px;
     margin-top: auto;
+    font-size: 1em;
 }
 
 .form-container a{

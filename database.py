@@ -90,8 +90,6 @@ def abuelosMexican():
 
     return render_template('abuelos-mexican.html', data=data)
 
-
-
 @app.route('/login')
 def login():
     return render_template('login.html')
@@ -138,7 +136,7 @@ def add_new_restaurant():
             )
             qr.add_data(f'http://127.0.0.1:5000/{name}')
             qr.make(fit=True)
-            img = qr.make_image(fill_color='#532d8e', back_color="black")
+            img = qr.make_image(fill_color='#532d8e', back_color="white")
             img.save(f"./static/images/qrcodes/qr{name}.png")
 
             return redirect(url_for('database'))
@@ -150,7 +148,7 @@ def add_new_restaurant():
         return render_template('/add-new-restaurant.html')
     
 
-@app.route('/edi-restaurant/<string:id>', methods=["GET", "POST"])
+@app.route('/edit-restaurant/<string:id>', methods=["GET", "POST"])
 def edit_restaurant(id):
     #Create cursor
     cur = conn.cursor()
